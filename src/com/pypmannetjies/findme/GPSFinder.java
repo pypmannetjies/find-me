@@ -14,10 +14,9 @@ public class GPSFinder {
     public GPSFinder(Context context, SmsSender smsSender) {
         this.context = context;
         this.smsSender = smsSender;
-        initLocationManager();
     }
 
-    private void initLocationManager() {
+    public void startLocationUpdate() {
         locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         locationListener = new GPSLocationListener(this);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, locationListener);

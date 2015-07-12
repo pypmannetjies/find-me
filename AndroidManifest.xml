@@ -18,7 +18,7 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
         <activity
-                android:name="com.pypmannetjies.findme.MainActivity"
+                android:name="com.pypmannetjies.findme.SettingsActivity"
                 android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -26,11 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-                android:name="com.pypmannetjies.findme.SettingsActivity"
-                android:label="@string/title_activity_settings">
-        </activity>
-        <receiver android:name="com.pypmannetjies.findme.SmsListener">
+        <receiver android:name="com.pypmannetjies.findme.SmsListener" android:enabled="false">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>

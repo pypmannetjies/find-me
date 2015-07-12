@@ -5,27 +5,30 @@ import android.content.Context;
 import android.content.Intent;
 import android.provider.Telephony;
 import android.telephony.SmsMessage;
+import android.widget.Toast;
 
 /**
  * Created by Christien on 2014-11-26.
  */
 public class SmsListener extends BroadcastReceiver {
 
-    Context context;
+    private Context context;
 
     @Override
     public void onReceive(Context context, Intent intent) {
         this.context = context;
-        if (Telephony.Sms.Intents.SMS_RECEIVED_ACTION.equals(intent.getAction())) {
-            for (SmsMessage smsMessage : Telephony.Sms.Intents.getMessagesFromIntent(intent)) {
-                if (isForUs(smsMessage)) {
-                    GPSFinder gpsFinder = new GPSFinder(context, new SmsSender(getStoredNumber()));
-                }
-            }
-        }
+        Toast toast = Toast.makeText(context, "BROADCAST RECEIVER", Toast.LENGTH_LONG);
+        toast.show();
+//        if (Telephony.Sms.Intents.SMS_RECEIVED_ACTION.equals(intent.getAction())) {
+//            for (SmsMessage smsMessage : Telephony.Sms.Intents.getMessagesFromIntent(intent)) {
+//                if (isForUs(smsMessage)) {
+//                    new GPSFinder(context, new SmsSender(getStoredNumber()));
+//                }
+//            }
+//        }
     }
 
-    private boolean isForUs(SmsMessage smsMessage) {
+    protected boolean isForUs(SmsMessage smsMessage) {
         String messageBody = smsMessage.getMessageBody();
         String number = smsMessage.getOriginatingAddress();
         String storedNumber = getStoredNumber();

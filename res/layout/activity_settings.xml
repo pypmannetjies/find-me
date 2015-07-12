@@ -2,40 +2,87 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:paddingBottom="@dimen/activity_vertical_margin"
-              android:paddingLeft="@dimen/activity_horizontal_margin"
-              android:paddingRight="@dimen/activity_horizontal_margin"
-              android:paddingTop="@dimen/activity_vertical_margin"
+              android:paddingBottom="@dimen/activity_margin"
+              android:paddingLeft="@dimen/activity_margin"
+              android:paddingRight="@dimen/activity_margin"
+              android:paddingTop="@dimen/activity_margin"
               tools:context="com.pypmannetjies.findme.SettingsActivity"
               android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/service_on_off_switch"/>
+
+        <Switch
+            android:id="@+id/listener_switch"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:minWidth="100dp"
+            android:layout_height="wrap_content"
+            android:onClick="toggleListener"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_description"
+        android:padding="@dimen/activity_margin"
+        android:textColor="#555"
+        />
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/settings_description"/>
+            android:text="@string/settings_description"
+            android:layout_marginBottom="@dimen/widget_spacing"/>
 
-    <EditText
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/number"/>
+        <EditText
             android:id="@+id/emailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="phone"
-            android:hint="@string/number">
+            android:inputType="phone">
 
-        <requestFocus/>
-    </EditText>
+            <requestFocus/>
+        </EditText>
+    </LinearLayout>
 
-
-    <EditText
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/widget_spacing">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/passphrase" />
+        <EditText
             android:id="@+id/passphrase"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
-            android:text="@string/passphrase">
+            android:inputType="textPassword">
 
-        <requestFocus/>
-    </EditText>
+            <requestFocus/>
+        </EditText>
+    </LinearLayout>
+
+
 
     <Button
             android:id="@+id/saveButton"
